@@ -1,0 +1,58 @@
+\usepackage[top=2.5cm, bottom=2.5cm, left=2cm, right=2cm]{geometry}
+
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+
+% \usepackage{lscape}
+\usepackage{pdflscape}
+\usepackage{parskip}
+
+\usepackage{xcolor}
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+
+\usepackage{tikz}
+\usetikzlibrary{circuits.ee.IEC}
+\tikzset{
+    circuit ee IEC,
+    every info/.style={font=\footnotesize},
+    /tikz/small circuit symbols
+}
+
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{15pt}
+
+% Header
+\fancyhead[L]{\small \href{https://github.com/BaranGuvendiren/adjustable-power-supply}{GitHub Repository}}
+\fancyhead[R]{\small \today}
+\renewcommand{\headrulewidth}{0.4pt}
+% Footer
+\fancyfoot[L]{\small APS: Design \& Verification Report}
+\fancyfoot[R]{\small Page \thepage\ of \pageref{LastPage}}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\usepackage{listings} 
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray}
+}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    filecolor=black,
+    urlcolor=black
+}
