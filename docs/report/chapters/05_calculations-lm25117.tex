@@ -1,0 +1,25 @@
+\subsection{LM25117 - U1}
+\subsubsection{Timer Resistor \texorpdfstring{$R_\mathrm{T}$}{Rt}}
+The switching frequency of the main buck regulator was set to \uoneFswSI\ via the $R_\mathrm{T}$ pin resistor; this enables sufficient separation from the adapter's lower switching frequency ($\approx \qty{100}{\kilo\hertz}$) to minimize beat frequency noise, while preventing excessive switching losses at higher frequencies.
+\begin{align}
+    R_\mathrm{T,calc}   &= \frac{5.2 \cdot 10^9}{f_\mathrm{sw}} - 949 \nonumber\\
+                        &= \frac{5.2 \cdot 10^9}{\uoneFsw} - 949 \approx \uoneRtCalcSI \nonumber\\
+    R_\mathrm{T,picked} &= \uoneRtSI
+\end{align}
+
+\subsubsection{Output Inductor \texorpdfstring{$L_\mathrm{O}$}{Lo}}
+The output inductance was calculated using a nominal voltage of $V_\mathrm{out,typ} = \uoneVoutTypSI$ to achieve a balanced ripple current trade-off over the full output voltage range.
+In addition, maximum inductor ripple ($I_\mathrm{pp}$) current was selected as \qty{20}{\percent} of the full load current.
+\begin{align}
+    L_\mathrm{O,calc}   &= \frac{V_\mathrm{out,typ}}{I_\mathrm{pp} \cdot f_\mathrm{sw}} \left(1 - \frac{V_\mathrm{out,typ}}{V_\mathrm{in}} \right) \nonumber\\
+                        &= \frac{\uoneVoutTyp}{\uoneIpp \cdot \uoneFsw} \left(1 - \frac{\uoneVoutTyp}{\boardVin} \right) \approx \uoneLoCalcSI \nonumber\\
+    L_\mathrm{O,picked} &= \uoneLoSI
+\end{align}
+
+\subsubsection{Current Sense Resistor \texorpdfstring{$R_\mathrm{CS}$}{Rcs}}
+Maximum output current capability ($I_\mathrm{out,max}$) was selected as \qty{150}{\percent}. The $K$ factor defined in the datasheet was set to 1.
+\begin{align}
+    R_\mathrm{CS,calc}   &= \frac{V_\mathrm{CS,th}}{I_\mathrm{out,max} + \dfrac{V_\mathrm{out,typ} \cdot K}{f_\mathrm{sw} \cdot L_\mathrm{O}} - \dfrac{I_\mathrm{pp}}{2}} \nonumber\\
+                         &= \frac{1.2}{\boardIoutMax + \dfrac{\uoneVoutTyp \cdot 1}{\uoneFsw \cdot \uoneLo} - \dfrac{\uoneIpp}{2}} \approx \uoneRcsCalcSI \nonumber\\
+    R_\mathrm{CS,picked} &= \uoneRcsSI
+\end{align}
