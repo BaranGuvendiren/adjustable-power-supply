@@ -20,4 +20,13 @@ function u1 = lm25117(board)
     u1.cramp = 1e-9;
     u1.rramp_calc = u1.lo / (u1.cramp * u1.rcs * 10);
     u1.rramp = 80e3;
+
+    % uvlo divider
+    u1.cft = 100e-12;
+    u1.vstart = 17.5;
+    u1.vstart_hys = 1.5;
+    u1.ruv2_calc = u1.vstart_hys / 20e-6;
+    u1.ruv2 = u1.ruv2_calc;
+    u1.ruv1_calc = 1.25 * u1.ruv2 / (u1.vstart - 1.25);
+    u1.ruv1 = 5.76e3;
 end

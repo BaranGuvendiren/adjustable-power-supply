@@ -1,8 +1,11 @@
 \renewcommand{\contentsname}{Table of Contents}
 \renewcommand{\cftsecpagefont}{\normalfont}
 \renewcommand{\cftsubsecpagefont}{\normalfont}
+\renewcommand{\cftdotsep}{1}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \hypersetup{linktoc=page}
 \setcounter{tocdepth}{2}
+\setlength{\cftbeforesecskip}{0pt}
 \tableofcontents
 \thispagestyle{fancy}
 \clearpage
